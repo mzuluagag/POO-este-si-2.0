@@ -33,8 +33,8 @@ ur_body_back.jpg
                                 </p>
                                 <div class="contenedor-botones">
                                     <form method ="GET" action="./infoObra">
-                                        <a href="#" class="btn btn-primary">Leer mas</a>
-                                        <button  class="btn btn-success" name="id" value="${obra.value.getId()}">Comentarios <span class="badge">${obra.value.comentarios.size()}</span></button>
+                                        <button href="#" class="btn btn-primary" name="id" value="${obra.value.getId()}">Leer mas</button>
+                                        <a class="btn btn-success" >Comentarios <span class="badge">${obra.value.comentarios.size()}</span></a>
                                     </form>
                                 </div>
                             </article>
