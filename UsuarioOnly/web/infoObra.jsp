@@ -57,7 +57,7 @@
                     
                     <label class="star star-1" for="star-1"></label>
                     <textarea rows="4" cols="50" name="descripcion" placeholder="Comenta aca"></textarea>
-                    <button type="submit">Comentar</button>
+                    <button type="submit" style="color:black">Comentar</button>
                     
                     
                     
