@@ -79,52 +79,63 @@ public class dataLoader extends HttpServlet {
             throws ServletException, IOException {
         try {
             HttpSession loadDataSession = request.getSession();
-            HashMap<String,Usuario> usuarios = new HashMap<>();
-            HashMap<String,Artista> artistas = new HashMap<>();
+            HashMap<String, Usuario> usuarios = new HashMap<>();
+            HashMap<String, Artista> artistas = new HashMap<>();
             if (null != loadDataSession.getAttribute("Usuarios")) {
-                usuarios = (HashMap<String,Usuario>) loadDataSession.getAttribute("Usuarios");
+                usuarios = (HashMap<String, Usuario>) loadDataSession.getAttribute("Usuarios");
                 loadDataSession.setAttribute("Usuarios", usuarios);
             } else {
 
                 loadDataSession.setAttribute("Usuarios", usuarios);
             }
             if (null != loadDataSession.getAttribute("Artistas")) {
-                artistas = (HashMap<String,Artista>) loadDataSession.getAttribute("Artistas");
+                artistas = (HashMap<String, Artista>) loadDataSession.getAttribute("Artistas");
                 loadDataSession.setAttribute("Artistas", artistas);
             } else {
 
                 loadDataSession.setAttribute("Artistas", artistas);
             }
+<<<<<<< HEAD
             FileReader users = new FileReader("C:\\Users\\Sergio\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Usuarios.txt");
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+            FileReader users = new FileReader("C:\\Users\\ASUS\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Usuarios.txt");
+=======
+            FileReader users = new FileReader("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Usuarios.txt");
+>>>>>>> 0e82dfb06551ca8e814e9a250f1d41d3717e918c
+=======
+            FileReader users = new FileReader("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Usuarios.txt");
+>>>>>>> 0e82dfb06551ca8e814e9a250f1d41d3717e918c
+>>>>>>> 8b50b3bb607f932d7d3037e2568788d68684ac5c
             BufferedReader bf = new BufferedReader(users);
             String user = bf.readLine();
             Artista art;
             String[] uA;
             while (user != null) {
                 uA = user.split(";");
-            
-                if(uA[6].equals("Usuario")){
-                    
-                    usuarios.put(uA[4],new Usuario(uA[0], uA[1], uA[2], uA[3],
-                        uA[4], uA[5], Double.parseDouble(uA[7])));
+
+                if (uA[6].equals("Usuario")) {
+
+                    usuarios.put(uA[4], new Usuario(uA[0], uA[1], uA[2], uA[3],
+                            uA[4], uA[5], Double.parseDouble(uA[7])));
                     user = bf.readLine();
-                
-                }else{
+
+                } else {
                     art = new Artista(uA[0], uA[1], uA[2], uA[3],
-                    uA[4], uA[5], Double.parseDouble(uA[7]));
-                    usuarios.put(uA[4],art);
-                    artistas.put(uA[4],art);
+                            uA[4], uA[5], Double.parseDouble(uA[7]));
+                    usuarios.put(uA[4], art);
+                    artistas.put(uA[4], art);
                     user = bf.readLine();
                 }
             }
             loadDataSession.setAttribute("Usuarios", usuarios);
             users.close();
-            RequestDispatcher view = request.getRequestDispatcher("index.jsp");
-            view.forward(request, response);
+
         } catch (IOException e) {
             System.out.println("File not found");
 
-        } finally{
+        } finally {
             RequestDispatcher view = request.getRequestDispatcher("index.jsp");
             view.forward(request, response);
         }
