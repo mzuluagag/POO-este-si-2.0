@@ -80,13 +80,15 @@ label.star:before {
 }
 
 .post .thumb {
-    width:60%;
+    width:40%;
     padding-right: 10px;
 }
 
 .post .cll {
     width:100%;
-    padding-right: 10px;
+    padding: 10px;
+ 
+        
 }
 
 .post .cll img{
