@@ -74,7 +74,7 @@ public class buscarArticulo extends HttpServlet {
                 obra = (Obra) pair.getValue();
                 nombre = obra.getNombre().toLowerCase();
                 
-                if((nombre.contains(palabras[i]) && (!related.containsKey((String)pair.getKey())))){
+                if((nombre.toLowerCase().contains(palabras[i]) && (!related.containsKey((String)pair.getKey())))){
                     obra.setPuntuacion();
                     related.put((String)pair.getKey(), obra);
                 }

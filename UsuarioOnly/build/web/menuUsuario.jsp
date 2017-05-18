@@ -55,7 +55,7 @@ ur_body_back.jpg
                     <h4>Articulos recientes</h4>
                     <c:if test="${!empty Obras}">
                         <c:forEach items="${Obras}" var="obra">
-                            <a href="#" class="list-group-item">
+                            <a href="infoObra?id=${obra.value.getId()}" class="list-group-item">
                                 <h4 class="list-group-item-heading">${obra.value.getNombre()}</h4>
                                 <p class="list-group-item-text">${obra.value.getArtista().getNombres()}</p>
                             </a>

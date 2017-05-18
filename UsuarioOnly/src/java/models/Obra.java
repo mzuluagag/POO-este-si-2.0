@@ -11,7 +11,6 @@ import java.util.Date;
 
 public class Obra {
 
-    
     private String id;
     private double precio;
     private String nombre;
@@ -19,7 +18,7 @@ public class Obra {
     private String imagen;
     private Artista artista;
     private Date fechaPublicacion;
-    private double puntuacion;
+    private double puntuacion = 0;
     public ArrayList<Comentario> comentarios = new ArrayList<>();
 
     public Obra() {
@@ -34,41 +33,41 @@ public class Obra {
         this.setArtista(artista);
         this.setFechaPublicacion();
         this.setId(id);
-        
+        artista.addObra(this);
+
     }
-    
+
     public static final Comparator<Obra> sortByPrecio() {
-            Comparator<Obra> comparator = new Comparator<Obra>() {
-                @Override
-                public int compare(Obra o1, Obra o2) {
-                    if (o1.precio > o2.precio) {
-                        return 1;
-                    } else {
-                        return -1;
-                    }
+        Comparator<Obra> comparator = new Comparator<Obra>() {
+            @Override
+            public int compare(Obra o1, Obra o2) {
+                if (o1.precio > o2.precio) {
+                    return 1;
+                } else {
+                    return -1;
                 }
+            }
 
-            };
-            return comparator;
-        }
-    
+        };
+        return comparator;
+    }
+
     public static final Comparator<Obra> sortByPuntuacion() {
-            Comparator<Obra> comparator = new Comparator<Obra>() {
-                @Override
-                public int compare(Obra o1, Obra o2) {
-                    if (o1.puntuacion < o2.puntuacion) {
-                        return 1;
-                    } else {
-                        return -1;
-                    }
+        Comparator<Obra> comparator = new Comparator<Obra>() {
+            @Override
+            public int compare(Obra o1, Obra o2) {
+                if (o1.puntuacion < o2.puntuacion) {
+                    return 1;
+                } else {
+                    return -1;
                 }
+            }
 
-            };
-            return comparator;
-        }
-    
+        };
+        return comparator;
+    }
 
-    public ArrayList<Comentario> getComentarios(){
+    public ArrayList<Comentario> getComentarios() {
         return comentarios;
     }
 
@@ -85,13 +84,13 @@ public class Obra {
     }
 
     public boolean setPrecio(double precio) {
-        if(precio>= 0){
+        if (precio >= 0) {
             this.precio = precio;
             return true;
-        }else{
+        } else {
             return false;
         }
-    }   
+    }
 
     public String getNombre() {
         return nombre;
@@ -140,20 +139,22 @@ public class Obra {
 
     public void setPuntuacion() {
         double cont = 0;
-        for (Comentario com : comentarios) {
-            cont += com.getPuntuacion();
+        if (comentarios.size() != 0) {
+            for (Comentario com : comentarios) {
+                cont += com.getPuntuacion();
+            }
+            puntuacion = cont / comentarios.size();
         }
-        puntuacion = cont / comentarios.size();
 
     }
-    
-    public boolean editarObra(String nombre, double precio, String descripcion){
-        if(artista.getId().equals(this.artista.getId())){
+
+    public boolean editarObra(String nombre, double precio, String descripcion) {
+        if (artista.getId().equals(this.artista.getId())) {
             setNombre(nombre);
             setPrecio(precio);
             setDescripcion(descripcion);
             return true;
-        }else{
+        } else {
             return false;
         }
     }

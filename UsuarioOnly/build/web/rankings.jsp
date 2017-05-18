@@ -85,7 +85,7 @@
                                             <tr>
                                             <td width="120"><a href="./infoObra?id=${user.getId()}">${user.getId()}</a></td>
                                             <td width="120">${user.getNombre()}</td>
-                                            <td width="120"><a href="./buscarUsuario?id=${user.getArtista().getId()}"${user.getArtista().getNombres()}</a></td>
+                                            <td width="120"><a href="./buscarUsuario?id=${user.getArtista().getId()}">${user.getArtista().getNombres()}</a></td>
                                             <td width="120">${user.getPuntuacion()}</td>
                                             <td width="120">${user.getFechaPublicacion()}</td>
                                             <td width="120">${user.getPrecio()}</td>
@@ -123,7 +123,7 @@
                                             <tr>
                                             <td width="120"><a href="./infoObra?id=${user.getId()}">${user.getId()}</a></td>
                                             <td width="120">${user.getNombre()}</td>
-                                            <td width="120"><a href="./buscarUsuario?id=${user.getArtista().getId()}"${user.getArtista().getNombres()}</a></td>
+                                            <td width="120"><a href="./buscarUsuario?id=${user.getArtista().getId()}">${user.getArtista().getNombres()}</a></td>
                                             <td width="120">${user.getPuntuacion()}</td>
                                             <td width="120">${user.getFechaPublicacion()}</td>
                                             <td width="120">${user.getPrecio()}</td>
