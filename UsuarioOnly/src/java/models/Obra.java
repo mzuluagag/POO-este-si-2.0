@@ -20,7 +20,7 @@ public class Obra {
     private Artista artista;
     private Date fechaPublicacion;
     private double puntuacion;
-    private ArrayList<Comentario> comentarios = new ArrayList<>();
+    public ArrayList<Comentario> comentarios = new ArrayList<>();
 
     public Obra() {
 
