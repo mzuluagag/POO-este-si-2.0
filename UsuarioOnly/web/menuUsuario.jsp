@@ -48,7 +48,7 @@ ur_body_back.jpg
                         <a href="./mostrarUsuarios.jsp" class="list-group-item">Ver usuarios</a> <!-- disabled = true -->
                         <a href="./buscarUsuario.jsp" class="list-group-item" style="">Buscar usuario</a>
                         <a href="./menuObra.jsp" class="list-group-item">Publicar obra</a>
-                        <a href="./editarObra.jsp" class="list-group-item">Editar obra</a>
+                        <a href="./obras.jsp" class="list-group-item">Mis obras</a>
                         <a href="./buscarObra.jsp" class="list-group-item">Buscar obra</a>
                         <a href="./rankings.jsp" class="list-group-item">Rankings</a>
                     </div>
