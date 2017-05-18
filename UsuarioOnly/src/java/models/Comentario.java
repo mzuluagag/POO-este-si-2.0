@@ -10,19 +10,20 @@ package models;
  * @author Sergio
  */
 public class Comentario {
+
     private String descripcion;
     private double puntuacion;
     private Obra articulo;
     private Usuario usuario;
 
     public Comentario(String descripcion, double puntuacion, Obra articulo, Usuario usuario) {
-        this.descripcion = descripcion;
-        this.puntuacion = puntuacion;
-        this.articulo = articulo;
-        this.usuario = usuario;
+        setDescripcion(descripcion);
+        setPuntuacion(puntuacion);
+        setArticulo(articulo);
+        setUsuario(usuario);
+        articulo.getComentarios().add(this);
+
     }
-    
-    
 
     public String getDescripcion() {
         return descripcion;
@@ -55,5 +56,5 @@ public class Comentario {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
+
 }

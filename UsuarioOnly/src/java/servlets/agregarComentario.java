@@ -112,7 +112,6 @@ public class agregarComentario extends HttpServlet {
         
         Comentario coment = new Comentario(descripcion,puntuacion, obra, user);
         comentarios.add(coment);
-        obra.getComentarios().add(coment);
         HashMap<String, Obra> obras = (HashMap) session.getAttribute("Obras");
         obras.put(obra.getId(),obra);
         
