@@ -84,11 +84,19 @@ public class dataLoaderM extends HttpServlet {
             HttpSession loadDataSession = request.getSession();
             HashMap<String, Artista> artistas = new HashMap<>();
             HashMap<String, Obra> obras = new HashMap<>();
+            int idObras;
             if (null != loadDataSession.getAttribute("Obras")) {
                 obras = (HashMap<String, Obra>) loadDataSession.getAttribute("Obras");
                 loadDataSession.setAttribute("Obras", obras);
             } else {
                 loadDataSession.setAttribute("Obras", obras);
+            }
+            if (null != loadDataSession.getAttribute("ObrasID")) {
+                idObras = Integer.parseInt((String.valueOf(loadDataSession.getAttribute("ObrasID"))));
+                loadDataSession.setAttribute("ObrasID", idObras + 1);
+            } else {
+                idObras = 1;
+                loadDataSession.setAttribute("ObrasID", idObras+1);
             }
             if (null != loadDataSession.getAttribute("Artistas")) {
                 artistas = (HashMap<String, Artista>) loadDataSession.getAttribute("Artistas");
@@ -97,31 +105,23 @@ public class dataLoaderM extends HttpServlet {
 
                 loadDataSession.setAttribute("Artistas", artistas);
             }
-<<<<<<< HEAD
+
             FileReader users = new FileReader("C:\\Users\\Sergio\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Obras.txt");
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-            FileReader users = new FileReader("C:\\Users\\ASUS\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Obras.txt");
-=======
-            FileReader users = new FileReader("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Obras.txt");
->>>>>>> 0e82dfb06551ca8e814e9a250f1d41d3717e918c
-=======
-            FileReader users = new FileReader("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Obras.txt");
->>>>>>> 0e82dfb06551ca8e814e9a250f1d41d3717e918c
->>>>>>> 8b50b3bb607f932d7d3037e2568788d68684ac5c
+
+            
             BufferedReader bf = new BufferedReader(users);
             String user = bf.readLine();
             Obra ob;
             String[] uA;
             while (user != null) {
                 uA = user.split(";");
-
+                idObras ++;
                 obras.put(uA[5], new Obra(uA[0], Double.parseDouble(uA[1]), uA[2], uA[3],
-                        artistas.get(uA[4]), uA[5]));
+                        artistas.get(uA[4]), String.valueOf(idObras)));
                 user = bf.readLine();
 
             }
+            loadDataSession.setAttribute("ObrasID", idObras+1);
             loadDataSession.setAttribute("Obras", obras);
             users.close();
         } catch (IOException e) {
