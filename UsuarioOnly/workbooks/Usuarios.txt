@@ -1,0 +1,13 @@
+Carlos;Torres;elboya;bor@gmail.com;123;2007-05-29;Artista;0
+Sergio;Arboleda;Checho;bum@gmail.com;990;2008-05-19;Usuario;0
+Mateo;Zuluaga;YESNOCANCEL;c@gmail.com;1234;2000-03-03;Usuario;0
+Carlos;Carrasquilla;jaquematexd;caca@gmail.com;80;1999-06-08;Usuario;0
+Sergio;Arboleda;nonono;g@g;1;1990-03-12;Artista;0
+Andres;Perez;anper;a@a;2;1998-12-01;Artista;0
+Sara;Carmona;sara;f@f;3;2001-01-22;Usuario;0
+Mateo;Zuluaga;teo;m@gmil.com;1045;1999-02-12;Artista;0
+Pedro;Gómez;Pego;p@p;21;1945-09-17;Usuario;0
+Adolf;Hitler;soaper;adi@ht.com;98;1889-04-20;usuario;0
+Miguel;Ángel;migue;m@m;4;1475-03-6;Artista;0
+
+
