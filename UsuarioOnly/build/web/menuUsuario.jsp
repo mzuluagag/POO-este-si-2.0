@@ -34,7 +34,7 @@ ur_body_back.jpg
                                 <div class="contenedor-botones">
                                     <form method ="GET" action="./infoObra">
                                         <a href="#" class="btn btn-primary">Leer mas</a>
-                                        <button  class="btn btn-success" name="id" value="${obra.value.getId()}">Comentarios <span class="badge">${obra.value.getId()}</span></button>
+                                        <button  class="btn btn-success" name="id" value="${obra.value.getId()}">Comentarios <span class="badge">${obra.value.comentarios.size()}</span></button>
                                     </form>
                                 </div>
                             </article>
