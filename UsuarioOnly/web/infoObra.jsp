@@ -17,22 +17,23 @@
         <section class="main container">
             <div class="row">
                 <c:if test="${!empty ObraActual}">
-                    <section class="posts col-md-8" style="padding-bottom: 10px">
+                    <section class="posts col-md-8" style="">
                         <article class="post clearfix">
-                            <a href="#" class="pull-left cll" style="border-style: solid;">
+                            <a href="${ObraActual.getImagen()}" class="pull-left cll" style="border-style: solid; border-color: #ffffff">
                                 <img class="img-responsive"  src="${ObraActual.getImagen()}" />
                             </a>
                         </article>
                     </section>
 
                     <aside class="col-md-4" style="padding-bottom: 10px;">
-                        <h1><span style="border-style: solid;">Informacion</span></h1><br>
+                        <div  class="center-block" >
+                            <h1><span style="border-style: solid; padding: 2px; ">Informacion</span></h1><br>
 
-                        <h3 ><span class="label label-primary">Titulo:</span> ${ObraActual.getNombre()}</h3>
-                        <h3 ><span class="label label-primary">Autor:</span> ${ObraActual.getArtista().getNombres()}</h3>
-                        <h3 ><span class="label label-primary">Precio:</span> ${ObraActual.getPrecio()}</h3>
-                        <h3 ><span class="label label-primary">Descripcion:</span><br>${ObraActual.getDescripcion()}</h3>
-
+                            <h3 ><span class="label label-primary">Titulo:</span> ${ObraActual.getNombre()}</h3>
+                            <h3 ><span class="label label-primary">Autor:</span> ${ObraActual.getArtista().getNombres()}</h3>
+                            <h3 ><span class="label label-primary">Precio:</span> ${ObraActual.getPrecio()}</h3>
+                            <h3 ><span class="label label-primary">Descripcion:</span><br>${ObraActual.getDescripcion()}</h3>
+                        </div>
                     </aside>
                 </c:if>
             </div>
@@ -40,29 +41,29 @@
                 <form method="POST" action="./agregarComentario">   
                     <input class="star star-5" id="star-5" type="radio" name="s5"/>
                     <label class="star star-5" for="star-5"></label>
-                    
+
                     <input class="star star-4" id="star-4" type="radio" name="s4"/>
-                    
+
                     <label class="star star-4" for="star-4"></label>
-                    
+
                     <input class="star star-3" id="star-3" type="radio" name="s3"/>
-                    
+
                     <label class="star star-3" for="star-3"></label>
-                    
+
                     <input class="star star-2" id="star-2" type="radio" name="s2"/>
-                    
+
                     <label class="star star-2" for="star-2"></label>
-                    
+
                     <input class="star star-1" id="star-1" type="radio" name="s1"/>
-                    
+
                     <label class="star star-1" for="star-1"></label>
                     <textarea rows="4" cols="50" name="descripcion" placeholder="Comenta aca" style="color:black"></textarea>
                     <button type="submit" style="color:black">Comentar</button>
-                    
-                    
-                    
+
+
+
                 </form>
-                
+
             </div>
             <div>
                 <h1><span class="label label-success">Comentarios</span></h1><br>
