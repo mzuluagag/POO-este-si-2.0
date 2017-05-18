@@ -97,7 +97,11 @@ public class dataLoaderM extends HttpServlet {
 
                 loadDataSession.setAttribute("Artistas", artistas);
             }
-            FileReader users = new FileReader("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\POO3ESTESI\\UsuarioOnly\\workbooks\\Obras.txt");
+<<<<<<< HEAD
+            FileReader users = new FileReader("C:\\Users\\ASUS\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Obras.txt");
+=======
+            FileReader users = new FileReader("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Obras.txt");
+>>>>>>> 0e82dfb06551ca8e814e9a250f1d41d3717e918c
             BufferedReader bf = new BufferedReader(users);
             String user = bf.readLine();
             Obra ob;
@@ -112,8 +116,6 @@ public class dataLoaderM extends HttpServlet {
             }
             loadDataSession.setAttribute("Obras", obras);
             users.close();
-            RequestDispatcher view = request.getRequestDispatcher("index.jsp");
-            view.forward(request, response);
         } catch (IOException e) {
             System.out.println("File not found");
 

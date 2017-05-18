@@ -57,9 +57,10 @@
                     <input class="star star-1" id="star-1" type="radio" name="s1"/>
 
                     <label class="star star-1" for="star-1"></label>
-                    <textarea rows="4" cols="50" name="descripcion" placeholder="Comenta aca" style="color:black"></textarea>
-                    <button type="submit" style="color:black">Comentar</button>
-
+                    <div class="form">
+                        <textarea class="form-control" rows="4"name="descripcion" placeholder="Comenta aca" style="color:black; margin-bottom: 5px;width: 500px"></textarea>
+                        <button class="btn btn-primary" type="submit" style=" margin-left: 1px">Comentar</button>
+                    </div>
 
 
                 </form>
@@ -69,11 +70,17 @@
                 <h1><span class="label label-success">Comentarios</span></h1><br>
                 <c:if test="${!empty ObraActual.getComentarios()}">
                     <c:forEach items="${ObraActual.getComentarios()}" var="comentario">
-                        <h3><span class="label label-secondary">Usuario: </span>${comentario.getUsuario().getNombres()}</h3>
-                        <h3><span class="label label-secondary">Puntuacion: </span>${comentario.getPuntuacion()}</h3>
-                        <blockquote>
-                            ${comentario.getDescripcion()}
-                        </blockquote>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"> <span class="label label-secondary">Usuario: </span>${comentario.getUsuario().getNombres()}</h3>
+                            </div>
+                            <div class="panel-tittle" style="color:black">
+                                <h3><span class="label label-secondary" style="color:black">Puntuacion: </span>${comentario.getPuntuacion()}</h3>
+                            </div>
+                            <div class="panel-body" style="color:black">
+                                ${comentario.getDescripcion()} 
+                            </div>
+                        </div>
                     </c:forEach>
 
                 </c:if>
