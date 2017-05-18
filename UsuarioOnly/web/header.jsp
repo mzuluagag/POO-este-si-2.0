@@ -38,7 +38,7 @@
                             <c:when test="${!empty usuarioActual}">
                                 <li>
                                     <form method="POST" action="./cerrarSession">
-                                        <button type="submit" value="Cerrar sesion">Cerrar sesion</button>
+                                        <button class="btn btn-link" type="submit" value="Cerrar sesion" style="padding-top: 13px">Cerrar sesion</button>
 
                                     </form>
                                 </li>
