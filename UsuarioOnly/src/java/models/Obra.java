@@ -19,8 +19,8 @@ public class Obra {
     private Artista artista;
     private Date fechaPublicacion;
     private double puntuacion = 0;
+    public boolean comprada = false;
     public ArrayList<Comentario> comentarios = new ArrayList<>();
-
     public Obra() {
 
     }
