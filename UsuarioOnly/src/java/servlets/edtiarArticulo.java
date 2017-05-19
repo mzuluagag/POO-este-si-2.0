@@ -80,20 +80,20 @@ public class edtiarArticulo extends HttpServlet {
         HashMap<String, Obra> obras;
         obras = (HashMap<String,Obra>) session.getAttribute("Obras");
         Usuario artista = (Artista) session.getAttribute("usuarioActual");
-        String nombre =(String.valueOf(request.getParameter("nombre")));
+        String nombre =(String.valueOf(request.getParameter("titulo")));
         String descripcion = (String.valueOf(request.getParameter("descripcion")));
         double precio = Double.parseDouble((String.valueOf(request.getParameter("precio"))));
-        String id = (String.valueOf(request.getParameter("id")));
-        Obra obra = obras.get(id);
+        
+        Obra obra = (Obra) session.getAttribute("ObraActual");
         if(artista.getId().equals(obra.getArtista().getId())){
             obra.editarObra(nombre, precio, descripcion);
-            obras.put(id,obra);
+            obras.put(obra.getId(),obra);
             session.setAttribute("Obras",obras);
             request.setAttribute("success", true);
         }else{
             request.setAttribute("success", false);
         }
-        RequestDispatcher view = request.getRequestDispatcher("menuObra.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("infoObra.jsp");
         view.forward(request,response);
         
     }
