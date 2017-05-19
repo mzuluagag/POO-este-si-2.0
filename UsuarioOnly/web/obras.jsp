@@ -41,7 +41,7 @@
                     </c:if>
                 </section>
 
-                <aside class="col-md-3" style="padding-bottom: 10px;">
+                <aside class="col-md-3" style="padding-bottom: 10px;float:right">
                     <div class="list-group">
                         <a class="list-group-item active">Menu</a>
                         <a href="./mostrarUsuarios.jsp" class="list-group-item">Ver usuarios</a> <!-- disabled = true -->
