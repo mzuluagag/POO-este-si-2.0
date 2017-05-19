@@ -73,7 +73,7 @@ public class validacionIngreso extends HttpServlet {
         //
         HttpSession session = (HttpSession) request.getSession();
         HashMap<String, Usuario> usuario = (HashMap<String, Usuario>) session.getAttribute("Usuarios");
-        
+        session.setAttribute("cambioColor", true);
         try {
             String email = String.valueOf(request.getParameter("email"));
             String id = request.getParameter("id");

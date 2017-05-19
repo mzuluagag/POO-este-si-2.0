@@ -70,17 +70,37 @@
                 <h1><span class="label label-success">Comentarios</span></h1><br>
                 <c:if test="${!empty ObraActual.getComentarios()}">
                     <c:forEach items="${ObraActual.getComentarios()}" var="comentario">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"> <span class="label label-secondary">Usuario: </span>${comentario.getUsuario().getNombres()}</h3>
-                            </div>
-                            <div class="panel-tittle" style="color:black">
-                                <h3><span class="label label-secondary" style="color:black">Puntuacion: </span>${comentario.getPuntuacion()}</h3>
-                            </div>
-                            <div class="panel-body" style="color:black">
-                                ${comentario.getDescripcion()} 
-                            </div>
-                        </div>
+                        <c:choose>
+                            <c:when test="${cambioColor==true}">
+                                <div class="panel panel-primary" style="background-color:#0C0F1F">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"> <span class="label label-secondary">Usuario: </span>${comentario.getUsuario().getNombres()}</h3>
+                                    </div>
+                                    <div class="panel-tittle" >
+                                        <h3><span class="label label-secondary" >Puntuacion: </span>${comentario.getPuntuacion()}</h3>
+                                    </div>
+                                    <div class="panel-body" >
+                                        ${comentario.getDescripcion()} 
+                                    </div>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="panel panel-primary" style="background-color:#1C2142">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title"> <span class="label label-secondary">Usuario: </span>${comentario.getUsuario().getNombres()}</h3>
+                                    </div>
+                                    <div class="panel-tittle" >
+                                        <h3><span class="label label-secondary" >Puntuacion: </span>${comentario.getPuntuacion()}</h3>
+                                    </div>
+                                    <div class="panel-body" >
+                                        ${comentario.getDescripcion()} 
+                                    </div>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
+                        <c:if test="${cambioColor=!cambioColor}">
+                            
+                        </c:if>
                     </c:forEach>
 
                 </c:if>
