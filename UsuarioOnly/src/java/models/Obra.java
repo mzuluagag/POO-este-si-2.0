@@ -19,10 +19,18 @@ public class Obra {
     private Artista artista;
     private Date fechaPublicacion;
     private double puntuacion = 0;
-    public boolean comprada = false;
+    private boolean comprada;
     public ArrayList<Comentario> comentarios = new ArrayList<>();
     public Obra() {
 
+    }
+
+    public boolean isComprada() {
+        return comprada;
+    }
+
+    public void setComprada(boolean comprada) {
+        this.comprada = comprada;
     }
 
     public Obra(String nombre, double precio, String imagen, String descripcion, Artista artista, String id) {

@@ -14,15 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.RequestDispatcher;
-import java.util.*;
 import models.*;
+import java.util.*;
 
 /**
  *
  * @author Sergio
  */
-@WebServlet(name = "comprarArticulo", urlPatterns = {"/comprarArticulo"})
-public class comprarArticulo extends HttpServlet {
+@WebServlet(name = "recargarPresupuesto", urlPatterns = {"/recargar"})
+public class recargarPresupuesto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +41,10 @@ public class comprarArticulo extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet comprarArticulo</title>");            
+            out.println("<title>Servlet recargarPresupuesto</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet comprarArticulo at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet recargarPresupuesto at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -76,21 +76,13 @@ public class comprarArticulo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
+        HttpSession session= request.getSession();
         Usuario user = (Usuario) session.getAttribute("usuarioActual");
-        Obra obra =(Obra) session.getAttribute("ObraActual");
-        if(user.getPresupuesto() >= obra.getPrecio()){
-            user.recargarPresupuesto(-1*(obra.getPrecio()));
-            obra.setComprada(true);
-            Artista artista = obra.getArtista();
-            artista.addObraVendida(obra);
-            user.addObraComprada(obra);
-            RequestDispatcher view = request.getRequestDispatcher("menuPresupuesto.jsp");
-            view.forward(request, response);
-        }else{
-            RequestDispatcher view = request.getRequestDispatcher("infoObra.jsp");
-            view.forward(request,response);
-        }
+        double valor = Double.parseDouble(request.getParameter("valor"));
+        user.recargarPresupuesto(valor);
+        RequestDispatcher view = request.getRequestDispatcher("menuPresupuesto.jsp");
+        view.forward(request, response);
+        
     }
 
     /**

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package models;
+import java.util.*;
 
 /**
  *
@@ -19,6 +20,7 @@ public class Usuario {
     private String fechaDeNacimiento;
     private double presupuesto;
     private String rol;
+    private HashMap <String, Obra> obrasCompradas = new HashMap<String,Obra>();
 
     public Usuario() {
 
@@ -48,6 +50,18 @@ public class Usuario {
         setFechaDeNacimiento(fechaDeNacimiento);
         setRol("Usuario");
         setPresupuesto(presupuesto);
+    }
+
+    public HashMap<String, Obra> getObrasCompradas() {
+        return obrasCompradas;
+    }
+
+    public void setObrasCompradas(HashMap<String, Obra> obrasCompradas) {
+        this.obrasCompradas = obrasCompradas;
+    }
+    
+    public void addObraComprada(Obra obra){
+        obrasCompradas.put(obra.getId(), obra);
     }
 
     public String getNombres() {
@@ -103,6 +117,10 @@ public class Usuario {
     }
 
     public void setPresupuesto(double presupuesto) {
+        this.presupuesto = presupuesto;
+    }
+    
+    public void recargarPresupuesto(double presupuesto){
         this.presupuesto += presupuesto;
     }
 
@@ -113,5 +131,7 @@ public class Usuario {
     public void setRol(String rol) {
         this.rol = rol;
     }
+    
+    
 
 }

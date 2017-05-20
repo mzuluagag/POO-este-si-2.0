@@ -42,7 +42,7 @@
                     </div>
                     <div>
                         <c:choose>
-                            <c:when test="${usuarioActual.getPresupuesto() >= ObraActual.getPrecio()}">
+                            <c:when test="${usuarioActual.getPresupuesto() >= ObraActual.getPrecio() && ObraActual.isComprada() == false}">
                                 <form method="POST" action="./comprarArticulo">
                                     <input type="submit" class="btn btn-success btn-large" value="Comprar"/>
                                 </form>
