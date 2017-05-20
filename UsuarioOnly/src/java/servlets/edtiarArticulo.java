@@ -41,7 +41,7 @@ public class edtiarArticulo extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet edtiarArticulo</title>");            
+            out.println("<title>Servlet edtiarArticulo</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet edtiarArticulo at " + request.getContextPath() + "</h1>");
@@ -76,26 +76,30 @@ public class edtiarArticulo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        HashMap<String, Obra> obras;
-        obras = (HashMap<String,Obra>) session.getAttribute("Obras");
-        Usuario artista = (Artista) session.getAttribute("usuarioActual");
-        String nombre =(String.valueOf(request.getParameter("titulo")));
-        String descripcion = (String.valueOf(request.getParameter("descripcion")));
-        double precio = Double.parseDouble((String.valueOf(request.getParameter("precio"))));
-        
-        Obra obra = (Obra) session.getAttribute("ObraActual");
-        if(artista.getId().equals(obra.getArtista().getId())){
-            obra.editarObra(nombre, precio, descripcion);
-            obras.put(obra.getId(),obra);
-            session.setAttribute("Obras",obras);
-            request.setAttribute("success", true);
-        }else{
-            request.setAttribute("success", false);
+        try {
+            HttpSession session = request.getSession();
+            HashMap<String, Obra> obras;
+            obras = (HashMap<String, Obra>) session.getAttribute("Obras");
+            Usuario artista = (Artista) session.getAttribute("usuarioActual");
+            String nombre = (String.valueOf(request.getParameter("titulo")));
+            String descripcion = (String.valueOf(request.getParameter("descripcion")));
+            double precio = Double.parseDouble((String.valueOf(request.getParameter("precio"))));
+            Obra obra = (Obra) session.getAttribute("ObraActual");
+            if (artista.getId().equals(obra.getArtista().getId())) {
+                obra.editarObra(nombre, precio, descripcion);
+                obras.put(obra.getId(), obra);
+                session.setAttribute("Obras", obras);
+                request.setAttribute("success", true);
+            } else {
+                request.setAttribute("success", false);
+            }
+        } catch (NumberFormatException n) {
+            System.out.println("That's not a number");
+        } finally {
+            RequestDispatcher view = request.getRequestDispatcher("infoObra.jsp");
+            view.forward(request, response);
         }
-        RequestDispatcher view = request.getRequestDispatcher("infoObra.jsp");
-        view.forward(request,response);
-        
+
     }
 
     /**

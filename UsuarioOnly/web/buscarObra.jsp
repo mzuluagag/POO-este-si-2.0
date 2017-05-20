@@ -16,12 +16,8 @@
     </head>
 
     <body style=" color: #000; background-image:url(img3_1.jpg);">
+        
         <div class="container">
-
-
-
-
-
             <form method ="GET" action="./buscarArticulo" style="margin-bottom: 2em;">
                 <div class="navbar-form">
                     <input type="text" class="form-control" style='width:275px' placeholder="Ingrese el nombre de la obra a buscar" name="nombre">

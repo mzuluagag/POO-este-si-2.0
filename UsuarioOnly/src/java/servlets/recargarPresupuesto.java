@@ -41,7 +41,7 @@ public class recargarPresupuesto extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet recargarPresupuesto</title>");            
+            out.println("<title>Servlet recargarPresupuesto</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet recargarPresupuesto at " + request.getContextPath() + "</h1>");
@@ -76,13 +76,17 @@ public class recargarPresupuesto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session= request.getSession();
-        Usuario user = (Usuario) session.getAttribute("usuarioActual");
-        double valor = Double.parseDouble(request.getParameter("valor"));
-        user.recargarPresupuesto(valor);
-        RequestDispatcher view = request.getRequestDispatcher("menuPresupuesto.jsp");
-        view.forward(request, response);
-        
+        try {
+            HttpSession session = request.getSession();
+            Usuario user = (Usuario) session.getAttribute("usuarioActual");
+            double valor = Double.parseDouble(request.getParameter("valor"));
+            user.recargarPresupuesto(valor);
+        } catch (NumberFormatException n) {
+            System.out.println("That's not a number");
+        } finally {
+            RequestDispatcher view = request.getRequestDispatcher("menuPresupuesto.jsp");
+            view.forward(request, response);
+        }
     }
 
     /**

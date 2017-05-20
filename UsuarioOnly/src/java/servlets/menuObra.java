@@ -95,7 +95,7 @@ public class menuObra extends HttpServlet {
                 Session.setAttribute("ObrasID", idObras + 1);
             } else {
                 idObras = 1;
-                Session.setAttribute("ObrasID", idObras+1);
+                Session.setAttribute("ObrasID", idObras + 1);
             }
             String titulo = request.getParameter("titulo");
             double precio = Double.valueOf(request.getParameter("precio"));
@@ -105,19 +105,22 @@ public class menuObra extends HttpServlet {
 
             Obra obra = new Obra(titulo, precio, url, descripcion, artista, String.valueOf(idObras));
             artista.addObra(obra);
-            HashMap<String, Artista> artistas = (HashMap<String,Artista>) Session.getAttribute("Artistas");
-            artistas.put(artista.getId(),artista);
+            HashMap<String, Artista> artistas = (HashMap<String, Artista>) Session.getAttribute("Artistas");
+            artistas.put(artista.getId(), artista);
             obras.put(String.valueOf(idObras), obra);
-            
             RequestDispatcher view = request.getRequestDispatcher("menuUsuario.jsp");
             view.forward(request, response);
+
         } catch (ClassCastException c) {
             request.setAttribute("success", false);
-            RequestDispatcher view = request.getRequestDispatcher("menuUsuario.jsp");
+
+        } catch (NumberFormatException n) {
+            System.out.println("That's not a number");
+            RequestDispatcher view = request.getRequestDispatcher("menuObra.jsp");
             view.forward(request, response);
+
         }
-        
-       
+
     }
 
     /**

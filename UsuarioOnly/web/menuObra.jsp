@@ -13,7 +13,8 @@
         <title>JSP Page</title>
     </head>
     <body  style=" color: #000; background-image:url(img3_1.jpg);">
-        <div class="container" align="center" STYLE= " margin-top: 3em; margin-bottom: 3em" >
+        
+        <div class="container" align="center" style= " margin-top: 3em; margin-bottom: 3em;" >
             <br>
             <div class="form" style="width:23%">
                 <form method="POST" action="./menuObra" >

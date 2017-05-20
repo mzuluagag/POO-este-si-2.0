@@ -75,8 +75,7 @@ public class buscarNombre extends HttpServlet {
                 nombre = user.getNombres().toLowerCase();
                 
                 sobrenombre = user.getSobrenombre().toLowerCase();
-                if((nombre.toLowerCase().contains(palabras[i]) || sobrenombre.toLowerCase().contains(palabras[i]))
-                        && (!related.containsKey((String)pair.getKey()))){
+                if((nombre.contains(palabras[i].toLowerCase()) || sobrenombre.contains(palabras[i].toLowerCase())) && (!related.containsKey((String)pair.getKey()))) {
                     related.put((String)pair.getKey(), user);
                 }
             }
