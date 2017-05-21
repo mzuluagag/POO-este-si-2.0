@@ -12,3 +12,10 @@ UsuarioOnly/src/java/servlets/dataLoaderC.java
 UsuarioOnly/src/java/servlets/dataLoader.java
 UsuarioOnly/build/web/WEB-INF/classes/servlets/dataLoaderC.class
 UsuarioOnly/build/web/WEB-INF/classes/servlets/dataLoader.class
+UsuarioOnly/src/java/servlets/dataLoaderC.java
+UsuarioOnly/src/java/servlets/dataLoader.java
+UsuarioOnly/nbproject/private/private.xml
+UsuarioOnly/nbproject/private/private.properties
+UsuarioOnly/build/web/WEB-INF/glassfish-web.xml
+UsuarioOnly/build/web/WEB-INF/classes/servlets/dataLoaderC.class
+UsuarioOnly/build/web/WEB-INF/classes/servlets/dataLoader.class
