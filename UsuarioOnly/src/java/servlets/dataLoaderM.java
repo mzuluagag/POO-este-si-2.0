@@ -106,19 +106,23 @@ public class dataLoaderM extends HttpServlet {
                 loadDataSession.setAttribute("Artistas", artistas);
             }
 
+<<<<<<< HEAD
 
             FileReader users = new FileReader("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Obras.txt");
+=======
+            FileReader users = new FileReader("C:\\Users\\ASUS\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Obras.txt");
+>>>>>>> a321275dab12738c775429c471d50293ef89525c
 
             BufferedReader bf = new BufferedReader(users);
             String user = bf.readLine();
-            Obra ob;
+            
             String[] uA;
             while (user != null) {
                 uA = user.split(";");
-                idObras ++;
-                obras.put(uA[5], new Obra(uA[0], Double.parseDouble(uA[1]), uA[2], uA[3],
+                obras.put(String.valueOf(idObras), new Obra(uA[0], Double.parseDouble(uA[1]), uA[2], uA[3],
                         artistas.get(uA[4]), String.valueOf(idObras)));
                 user = bf.readLine();
+                idObras ++;
 
             }
             loadDataSession.setAttribute("ObrasID", idObras+1);

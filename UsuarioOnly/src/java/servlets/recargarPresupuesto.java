@@ -12,17 +12,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
-import models.*;
 import javax.servlet.http.HttpSession;
 import javax.servlet.RequestDispatcher;
+import models.*;
+import java.util.*;
 
 /**
  *
  * @author Sergio
  */
-@WebServlet(name = "edtiarArticulo", urlPatterns = {"/editarArticulo"})
-public class edtiarArticulo extends HttpServlet {
+@WebServlet(name = "recargarPresupuesto", urlPatterns = {"/recargar"})
+public class recargarPresupuesto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +41,10 @@ public class edtiarArticulo extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet edtiarArticulo</title>");
+            out.println("<title>Servlet recargarPresupuesto</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet edtiarArticulo at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet recargarPresupuesto at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -78,28 +78,20 @@ public class edtiarArticulo extends HttpServlet {
             throws ServletException, IOException {
         try {
             HttpSession session = request.getSession();
-            HashMap<String, Obra> obras;
-            obras = (HashMap<String, Obra>) session.getAttribute("Obras");
-            Usuario artista = (Artista) session.getAttribute("usuarioActual");
-            String nombre = (String.valueOf(request.getParameter("titulo")));
-            String descripcion = (String.valueOf(request.getParameter("descripcion")));
-            double precio = Double.parseDouble((String.valueOf(request.getParameter("precio"))));
-            Obra obra = (Obra) session.getAttribute("ObraActual");
-            if (artista.getId().equals(obra.getArtista().getId())) {
-                obra.editarObra(nombre, precio, descripcion);
-                obras.put(obra.getId(), obra);
-                session.setAttribute("Obras", obras);
-                request.setAttribute("success", true);
-            } else {
-                request.setAttribute("success", false);
+            Usuario user = (Usuario) session.getAttribute("usuarioActual");
+            double valor = Double.parseDouble(request.getParameter("valor"));
+            if(valor < 0){
+                throw new NumberFormatException();
             }
+            user.recargarPresupuesto(valor);
+            request.setAttribute("success", true);
         } catch (NumberFormatException n) {
             System.out.println("That's not a number");
+            request.setAttribute("success", false);
         } finally {
-            RequestDispatcher view = request.getRequestDispatcher("infoObra.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("menuPresupuesto.jsp");
             view.forward(request, response);
         }
-
     }
 
     /**

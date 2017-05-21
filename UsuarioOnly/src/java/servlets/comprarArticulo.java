@@ -12,6 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.RequestDispatcher;
+import java.util.*;
+import models.*;
 
 /**
  *
@@ -72,7 +76,22 @@ public class comprarArticulo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        Usuario user = (Usuario) session.getAttribute("usuarioActual");
+        Obra obra =(Obra) session.getAttribute("ObraActual");
+        if(user.getPresupuesto() >= obra.getPrecio()){
+            user.recargarPresupuesto(-1*(obra.getPrecio()));
+            obra.setComprada(true);
+            Artista artista = obra.getArtista();
+            artista.addObraVendida(obra);
+            user.addObraComprada(obra);
+            request.setAttribute("compra", true);
+            RequestDispatcher view = request.getRequestDispatcher("menuPresupuesto.jsp");
+            view.forward(request, response);
+        }else{
+            RequestDispatcher view = request.getRequestDispatcher("infoObra.jsp");
+            view.forward(request,response);
+        }
     }
 
     /**

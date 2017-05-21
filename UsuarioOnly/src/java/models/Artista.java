@@ -70,6 +70,9 @@ public class Artista extends Usuario {
     public void setArticulosVendidos(HashMap<String, Obra> articulosVendidos) {
         this.articulosVendidos = articulosVendidos;
     }
+    public void addObraVendida(Obra obra){
+        articulosVendidos.put(obra.getId(), obra);
+    }
 
     public void addObra(Obra obra) {
         articulos.put(obra.getId(), obra);

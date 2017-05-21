@@ -18,10 +18,7 @@
     </head>
 
     <body  style=" color: #000; background-image:url(img3_1.jpg);">
-        <div class="container">
-
-
-
+        <section class="main container">
 
 
             <form method ="POST" action="./rankingReputacion" style="margin-bottom: 2em;">
@@ -50,7 +47,7 @@
                                             <td width="120">${user.getSobrenombre()}</td>
                                             <td width="120">${user.getEmail()}</td>
                                             <td width="120">${user.getReputacion()}</td>
-                                            
+
                                         </tr>
                                     </c:forEach>
                                 </table>
@@ -61,7 +58,7 @@
                 </div>
 
             </form>
-                        <form method ="POST" action="./rankingPuntuacion" style="margin-bottom: 2em;">
+            <form method ="POST" action="./rankingPuntuacion" style="margin-bottom: 2em;">
                 <div class="navbar-form">
 
                     <button type="submit" class="btn btn-primary">
@@ -99,7 +96,7 @@
                 </div>
 
             </form>
-                                    <form method ="POST" action="./rankingPrecio" style="margin-bottom: 2em;">
+            <form method ="POST" action="./rankingPrecio" style="margin-bottom: 2em;">
                 <div class="navbar-form">
 
                     <button type="submit" class="btn btn-primary">
@@ -132,12 +129,10 @@
                                 </table>
                             </div>
                         </c:when>
-
                     </c:choose>
                 </div>
-
             </form>
-        </div>
+        </section>
     </body>
 
 </html>

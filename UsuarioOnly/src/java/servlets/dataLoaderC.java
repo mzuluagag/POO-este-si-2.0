@@ -108,10 +108,10 @@ public class dataLoaderC extends HttpServlet {
                 loadDataSession.setAttribute("Comentarios", comentarios);
             }
             
-            FileReader users = new FileReader("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Comentarios.txt");
+            FileReader users = new FileReader("C:\\Users\\Sergio\\POO-este-si-2.0\\UsuarioOnly\\workbooks\\Comentarios.txt");
             BufferedReader bf = new BufferedReader(users);
             String user = bf.readLine();
-            Comentario ct;
+            
             String[] uA;
             while (user != null) {
                 uA = user.split(";");

@@ -16,7 +16,7 @@
     <body style=" color: #000; background-image:url(img3_1.jpg);" >
         <section class="main container">
             <div class="row">
-                <section class="posts col-md-9">
+                <section class="posts col-md-9 clearfix">
                     <c:if test="${!empty usuarioActual.getArticulos()}">
                         <c:forEach items="${usuarioActual.getArticulos()}" var="obra">
                             <article class="post clearfix">
@@ -41,7 +41,7 @@
                     </c:if>
                 </section>
 
-                <aside class="col-md-3" style="padding-bottom: 10px;">
+                <aside class="col-md-3" style="padding-bottom: 10px;float:right">
                     <div class="list-group">
                         <a class="list-group-item active">Menu</a>
                         <a href="./mostrarUsuarios.jsp" class="list-group-item">Ver usuarios</a> <!-- disabled = true -->
@@ -51,15 +51,6 @@
                         <a href="./buscarObra.jsp" class="list-group-item">Buscar obra</a>
                         <a href="./rankings.jsp" class="list-group-item">Rankings</a>
                     </div>
-                    <h4>Articulos recientes</h4>
-                    <c:if test="${!empty Obras}">
-                        <c:forEach items="${Obras}" var="obra">
-                            <a href="infoObra?id=${obra.value.getId()}" class="list-group-item">
-                                <h4 class="list-group-item-heading">${obra.value.getNombre()}</h4>
-                                <p class="list-group-item-text">${obra.value.getArtista().getNombres()}</p>
-                            </a>
-                        </c:forEach>
-                    </c:if>
                 </aside>
             </div>
         </section>

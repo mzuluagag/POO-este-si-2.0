@@ -47,10 +47,13 @@ ur_body_back.jpg
                         <a class="list-group-item active">Menu</a>
                         <a href="./mostrarUsuarios.jsp" class="list-group-item">Ver usuarios</a> <!-- disabled = true -->
                         <a href="./buscarUsuario.jsp" class="list-group-item" style="">Buscar usuario</a>
-                        <a href="./menuObra.jsp" class="list-group-item">Publicar obra</a>
-                        <a href="./obras.jsp" class="list-group-item">Mis obras</a>
+                        <c:if test="${usuarioActual.getRol() == 'Artista'}">
+                            <a href="./menuObra.jsp" class="list-group-item">Publicar obra</a>
+                            <a href="./obras.jsp" class="list-group-item">Mis obras</a>
+                        </c:if>
                         <a href="./buscarObra.jsp" class="list-group-item">Buscar obra</a>
                         <a href="./rankings.jsp" class="list-group-item">Rankings</a>
+                        <a href="./menuPresupuesto.jsp" class="list-group-item">Recargar presupuesto</a>
                     </div>
                     <h4>Articulos recientes</h4>
                     <c:if test="${!empty Obras}">
