@@ -85,6 +85,7 @@ public class comprarArticulo extends HttpServlet {
             Artista artista = obra.getArtista();
             artista.addObraVendida(obra);
             user.addObraComprada(obra);
+            request.setAttribute("compra", true);
             RequestDispatcher view = request.getRequestDispatcher("menuPresupuesto.jsp");
             view.forward(request, response);
         }else{

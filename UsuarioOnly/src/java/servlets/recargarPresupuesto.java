@@ -80,9 +80,14 @@ public class recargarPresupuesto extends HttpServlet {
             HttpSession session = request.getSession();
             Usuario user = (Usuario) session.getAttribute("usuarioActual");
             double valor = Double.parseDouble(request.getParameter("valor"));
+            if(valor < 0){
+                throw new NumberFormatException();
+            }
             user.recargarPresupuesto(valor);
+            request.setAttribute("success", true);
         } catch (NumberFormatException n) {
             System.out.println("That's not a number");
+            request.setAttribute("success", false);
         } finally {
             RequestDispatcher view = request.getRequestDispatcher("menuPresupuesto.jsp");
             view.forward(request, response);

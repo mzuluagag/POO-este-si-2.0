@@ -129,15 +129,9 @@
                                 </table>
                             </div>
                         </c:when>
-
                     </c:choose>
                 </div>
-
             </form>
-
-
-
-
         </section>
     </body>
 

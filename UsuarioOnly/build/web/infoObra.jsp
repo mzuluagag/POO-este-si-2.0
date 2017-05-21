@@ -51,7 +51,9 @@
                                 <input type="submit" class="btn btn-success btn-large disabled" value="Comprar"/>
                             </c:otherwise>
 
+
                         </c:choose>
+
                     </div>
                     <div class="stars">               
                         <form method="POST" action="./agregarComentario">   
