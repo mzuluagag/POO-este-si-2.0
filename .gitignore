@@ -1,12 +1,8 @@
 /UsuarioOnly/dist/
-UsuarioOnly/src/java/servlets/dataLoaderM.java
-UsuarioOnly/src/java/servlets/dataLoaderM.java
-UsuarioOnly/src/java/servlets/dataLoader.java
-UsuarioOnly/build/web/WEB-INF/classes/servlets/dataLoader.class
 UsuarioOnly/build/web/WEB-INF/classes/servlets/dataLoaderM.class
 UsuarioOnly/src/java/servlets/dataLoaderM.java
-UsuarioOnly/src/java/servlets/dataLoader.java
 UsuarioOnly/build/web/WEB-INF/classes/servlets/dataLoaderM.class
+<<<<<<< HEAD
 UsuarioOnly/build/web/WEB-INF/classes/servlets/dataLoader.class
 UsuarioOnly/src/java/servlets/dataLoaderC.java
 UsuarioOnly/src/java/servlets/dataLoader.java
@@ -19,3 +15,5 @@ UsuarioOnly/nbproject/private/private.properties
 UsuarioOnly/build/web/WEB-INF/glassfish-web.xml
 UsuarioOnly/build/web/WEB-INF/classes/servlets/dataLoaderC.class
 UsuarioOnly/build/web/WEB-INF/classes/servlets/dataLoader.class
+=======
+>>>>>>> 5788100c821859985b9c531d8ec3bbe40d9a0d69
