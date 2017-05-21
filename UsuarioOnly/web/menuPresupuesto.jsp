@@ -22,43 +22,44 @@
 
         <section class="main container">
             <div class="row">
-                <form method="POST" action="./recargar">
-                    <input style="width: 20em;float:left "class="form-control"  name="valor" type="text" placeholder="Ingrese el valor que desea recargar" required>
-                    <br></br>
-                    <input class="btn-success" type="submit" value="Recargar">
-                </form>
-                <c:choose>
-                    <c:when test="${success}">
-                        <script type="text/javascript">
-                            alert("Recargar realizada satisfactoriamente");
-                        </script>    
-                    </c:when>
+                <div class="col-md-9">
+                    <form method="POST" action="./recargar">
+                        <input style="width: 20em;float:left "class="form-control"  name="valor" type="text" placeholder="Ingrese el valor que desea recargar" required>
+                        <br></br>
+                        <input class="btn-success" type="submit" value="Recargar">
+                    </form>
+                    <c:choose>
+                        <c:when test="${success}">
+                            <script type="text/javascript">
+                                alert("Recargar realizada satisfactoriamente");
+                            </script>    
+                        </c:when>
 
-                </c:choose>
-                <div class="container">
-                    <h2>Obras compradas</h2>
-                    <p>Tu presupuesto actual es de: ${usuarioActual.getPresupuesto()}</p>            
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Titulo</th>
-                                <th>Autor</th>
-                                <th>Precio</th>
+                    </c:choose>
+                    <div >
+                        <h2>Obras compradas</h2>
+                        <p>Tu presupuesto actual es de: ${usuarioActual.getPresupuesto()}</p>            
+                        <table class="table table-striped">
+                            <tr class="danger">
+                                <th width="80">ID</th>
+                                <th width="80">Titulo</th>
+                                <th width="80">Autor</th>
+                                <th width="80">Precio</th>
                             </tr>
-                        </thead>
-                        <c:forEach items="${usuarioActual.getObrasCompradas()}" var="obra">
-                            <tr>
-                                <td width="120"><a href="./infoObra?id=${obra.value.getId()}">${obra.value.getId()}</a></td>
-                                <td width="120">${obra.value.getNombre()}</td>
-                                <td width="120">${obra.value.getArtista().getNombres()}</td>
-                                <td width="120">${user.value.getPrecio()}</td>
+                            <c:forEach items="${usuarioActual.getObrasCompradas()}" var="obra">
+                                <tr>
+                                    <td ><a href="./infoObra?id=${obra.value.getId()}">${obra.value.getId()}</a></td>
+                                    <td >${obra.value.getNombre()}</td>
+                                    <td >${obra.value.getArtista().getNombres()}</td>
+                                    <td >${obra.value.getPrecio()}</td>
 
-                            </tr>
-                        </c:forEach>
-                    </table>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </div>
                 </div>
-                <aside class="col-md-3" style="padding-bottom: 10px;float:right">
+                <aside class="col-md-3" style="padding-bottom: 10px;">
+
                     <div class="list-group">
                         <a class="list-group-item active">Menu</a>
                         <a href="./mostrarUsuarios.jsp" class="list-group-item">Ver usuarios</a> <!-- disabled = true -->
@@ -71,15 +72,7 @@
                         <a href="./rankings.jsp" class="list-group-item">Rankings</a>
                         <a href="./menuPresupuesto.jsp" class="list-group-item">Recargar presupuesto</a>
                     </div>
-                    <h4>Articulos recientes</h4>
-                    <c:if test="${!empty Obras}">
-                        <c:forEach items="${Obras}" var="obra">
-                            <a href="infoObra?id=${obra.value.getId()}" class="list-group-item">
-                                <h4 class="list-group-item-heading">${obra.value.getNombre()}</h4>
-                                <p class="list-group-item-text">${obra.value.getArtista().getNombres()}</p>
-                            </a>
-                        </c:forEach>
-                    </c:if>
+                    
                 </aside>
             </div>
         </section>
