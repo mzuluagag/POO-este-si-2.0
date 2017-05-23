@@ -38,13 +38,7 @@
 
                     </c:otherwise>    
                 </c:choose>
-
             </form>
-
-
-
-
-
             <form method ="GET" action="./buscarNombre" style="margin-bottom: 2em;">
                 <div class="navbar-form">
                     <input type="text" class="form-control" style='width:275px' placeholder="Ingrese el nombre del usuario a buscar" name="nombre">
@@ -52,7 +46,7 @@
                         <span class="glyphicon glyphicon-search"></span>
                     </button>
                 </div>
-                <div class="container" ALIGN="center" style="margin-top: -2em;">
+                <div class="container" ALIGN="center" style="margin-top: 1em;">
                     <c:choose>
                         <c:when test="${!empty resultados}">
                             <div class="container" ALIGN="center">
@@ -76,11 +70,7 @@
                                 </table>
                             </div>
                         </c:when>
-                        <c:otherwise>
-                            <h1>
-                                No hay usuarios registrados
-                            </h1>
-                        </c:otherwise>
+                      
                     </c:choose>
                 </div>
 

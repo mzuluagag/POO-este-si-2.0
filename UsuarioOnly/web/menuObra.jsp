@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>${textos.get("tituloppagina")}</title>
     </head>
     <body  style=" color: #000; background-image:url(img3_1.jpg);">
         
